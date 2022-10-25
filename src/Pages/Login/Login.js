@@ -33,7 +33,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='mx-96'>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
@@ -53,7 +53,7 @@ const Login = () => {
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                 <label className="label mt-3">
-                                    <span className='text-xl'>Haven't any Account? <Link to='/login' className=" text-xl label-text-alt link link-hover">Register Here</Link></span>
+                                    <span className='text-xl'>Haven't any Account? <Link to='/register' className=" text-xl label-text-alt link link-hover">Register Here</Link></span>
                                 </label>
                             </div>
                             <label className="text-red-800 text-3xl">

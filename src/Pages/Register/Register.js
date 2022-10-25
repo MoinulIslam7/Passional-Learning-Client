@@ -5,15 +5,14 @@ import { AuthContext } from '../../Contexts/UserContext';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
+    const { createUser, signInWithGoogle, signInWithGitHub, updateUserProfile } = useContext(AuthContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
         const form = event.target;
-        const name = form.Name.value;
+        const name = form.displayName.value;
         const email = form.email.value;
-        const photoURL = form.PhotoURL.value;
+        const photoURL = form.photoURL.value;
         const password = form.password.value;
         console.log(name, email, password, photoURL);
 
@@ -22,12 +21,23 @@ const Register = () => {
                 const user = result.user;
                 form.reset();
                 setError('');
-                console.log("Register user : ", user);
+                handleUserUpdateProfile(name, photoURL);
             })
             .catch((error) => {
                 console.error("error : ", error);
                 setError(error.message);
             })
+    }
+    const handleUserUpdateProfile = (name, photoURL) =>{
+        const profile ={
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => {})
+        .then(error => {
+            console.error(error);
+        })
     }
 
     const handleGoogleSignIn = () => {
@@ -53,13 +63,12 @@ const Register = () => {
     }
 
 
-
     return (
         <div className=' mx-96 '>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Please Register now!</h1>
+                        <h1 className="text-5xl font-bold"> Register now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit} className="card-body">
@@ -67,13 +76,13 @@ const Register = () => {
                                 <label className="label">
                                     <span className=" text-3xl label-text">Name</span>
                                 </label>
-                                <input type="text" name='Name' placeholder="Your Full Name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="Your Full Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className=" text-3xl label-text">Photo URL</span>
                                 </label>
-                                <input type="text" name='PhotoURL' placeholder="Your Photo URL" className="input input-bordered" required />
+                                <input type="text" name='photoURL' placeholder="Your Photo URL" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
