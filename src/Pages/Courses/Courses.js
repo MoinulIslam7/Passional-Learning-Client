@@ -11,7 +11,7 @@ const Courses = () => {
             .then(data => setCourses(data))
     }, [])
 
-   
+
 
     return (
         <div className="grid grid-cols-4 gap-4">
@@ -22,7 +22,7 @@ const Courses = () => {
                 {
                     courses.map(course => <div key={course.id}>
                         <div>
-                            <Link to={`${course.id}`}>
+                            <Link to={`/CourseDetails/${course.id}`}>
                                 <button className="btn mb-2 w-full">
                                     {course.name}
                                 </button>
@@ -36,9 +36,10 @@ const Courses = () => {
                 {
                     courses.map(course => <div key={course.id}>
                         <div className='grid justify-items-center border-2 mb-8 rounded-lg'>
-                            <Link to={`${course.id}`}>
-                                <img className='w-64 h-64' src={course.logo} alt="" />
-                                <h2 className='text-3xl grid justify-items-center border m-4 rounded-xl'>{course.name}</h2>
+                            <img className='w-64 h-64' src={course.logo} alt="" />
+                            <h2 className='text-3xl '>{course.name}</h2>
+                            <Link to={`/CourseDetails/${course.id}`}>
+                                <button className='text-2xl grid justify-items-center w-full align-items-center border m-4 rounded-xl p-4 bg-blue-800'>Click for Details</button>
                             </Link>
                         </div>
                     </div>)
