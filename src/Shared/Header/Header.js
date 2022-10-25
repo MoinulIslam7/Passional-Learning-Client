@@ -44,7 +44,7 @@ const Header = () => {
                     <Link className="btn btn-ghost normal-case text-xl" to='/faq'>FAQ</Link>
                     <Link className="btn btn-ghost normal-case text-xl" to='/blog'>Blog</Link>
                     {
-                        user?.email
+                        user?.uid
                             ?
                             <button onClick={handleSignOut} className="btn btn-ghost normal-case text-xl">Sign Out</button>
                             :
