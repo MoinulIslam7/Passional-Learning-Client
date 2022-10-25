@@ -55,7 +55,7 @@ const Register = () => {
 
 
     return (
-        <div>
+        <div className=' mx-96 '>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
@@ -65,31 +65,35 @@ const Register = () => {
                         <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className=" text-3xl label-text">Name</span>
                                 </label>
                                 <input type="text" name='Name' placeholder="Your Full Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo URL</span>
+                                    <span className=" text-3xl label-text">Photo URL</span>
                                 </label>
                                 <input type="text" name='PhotoURL' placeholder="Your Photo URL" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="text-3xl label-text">Email</span>
                                 </label>
                                 <input type="email" name='email' placeholder="Your email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="text-3xl label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                 <label className="label mt-3">
-                                    <span>Already Have an Account? <Link to='/login' className="label-text-alt link link-hover">Login Here</Link></span>
+                                    <span className='text-xl'>Already Have an Account? <Link to='/login' className=" text-xl label-text-alt link link-hover">Login Here</Link></span>
                                 </label>
                             </div>
+                            <label className="text-red-800 text-3xl">
+                                {error}
+                            </label>
+
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>

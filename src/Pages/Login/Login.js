@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/UserContext';
 
@@ -6,6 +6,7 @@ const Login = () => {
 
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [error, setError] = useState('');
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
 
@@ -22,10 +23,12 @@ const Login = () => {
                 const user = result.user;
                 console.log("Login user : ", user);
                 form.reset();
+                setError('');
                 navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error("error : ", error);
+                setError(error.message);
             })
     }
 
@@ -40,19 +43,22 @@ const Login = () => {
                         <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="text-3xl label-text">Email</span>
                                 </label>
                                 <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="text-3xl label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                                <label className="label">
-                                    <Link to='/register' className="label-text-alt link link-hover">You haven't any account? Please Register now</Link>
+                                <label className="label mt-3">
+                                    <span className='text-xl'>Haven't any Account? <Link to='/login' className=" text-xl label-text-alt link link-hover">Register Here</Link></span>
                                 </label>
                             </div>
+                            <label className="text-red-800 text-3xl">
+                                {error}
+                            </label>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
