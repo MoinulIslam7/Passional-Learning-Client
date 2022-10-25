@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../Assets/logo192.png"
-import '../Header/Header.css'
 const Header = () => {
 
     const handleTheme = () => {
