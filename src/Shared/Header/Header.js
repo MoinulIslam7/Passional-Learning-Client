@@ -32,7 +32,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className='flex roundedCircle'>
-                    <img className='h-8 w-8 mt-2 ' src={logo} alt="images" />
+                    <img className='h-8 w-8 mt-2 '  src={logo} alt="images" />
                     <Link to='/' className="btn btn-ghost normal-case text-2xl">Passional Learning</Link>
                 </div>
 
@@ -61,12 +61,12 @@ const Header = () => {
                         {
                             user?.photoURL ?
                             <>
-                            {user?.photoURL && <img className='w-8 h-8 mx-2 mt-2' src={user?.photoURL} alt="" />
+                            {user?.photoURL && <img className='w-8 h-8 mx-2 mt-2' title={user.displayName} src={user?.photoURL} alt="" />
                             }
                             </>  
                             :
                             <>
-                            {user?.displayName && <p className='text-2xl'>welcome, {user.displayName}</p>}
+                            {user?.email && <p className='text-2xl'>welcome, {user.email}</p>}
                             </>
                      
                         }
