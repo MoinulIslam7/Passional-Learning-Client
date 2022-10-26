@@ -52,6 +52,10 @@ export const routes = createBrowserRouter([
                     element: <Blog></Blog>
                 }
         ]
+    },
+    {
+        path: '*',
+        element: <h1 className="text-5xl text-center">SORRY!! Router Not Found!!</h1>
     }
        
 ])

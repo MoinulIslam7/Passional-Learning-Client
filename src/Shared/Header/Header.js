@@ -33,7 +33,7 @@ const Header = () => {
                 </div>
                 <div className='flex roundedCircle'>
                     <img className='h-8 w-8 mt-2 '  src={logo} alt="images" />
-                    <Link to='/' className="btn btn-ghost normal-case text-2xl sm:hidden">Passional Learning</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-2xl">Passional Learning</Link>
                 </div>
 
             </div>
