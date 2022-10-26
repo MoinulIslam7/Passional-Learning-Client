@@ -10,6 +10,22 @@ const auth = getAuth(app);
 const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
+    const [darkMode, setDarkMode] = useState(localStorage.getItem('theme') === 'dark'? true : false);
+    useEffect(() =>{
+        if(darkMode){
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        }
+        else{
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+        }
+
+    },[darkMode])
+
+    const toggleDarkMode = () =>{
+        setDarkMode(!darkMode);
+    }
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -56,7 +72,7 @@ const UserContext = ({ children }) => {
 
     }, [])
 
-    const authInfo = { user, loading, createUser, signIn, signInWithGoogle, signInWithGitHub, logOut , updateUserProfile}
+    const authInfo = { user, loading, darkMode,toggleDarkMode, createUser, signIn, signInWithGoogle, signInWithGitHub, logOut , updateUserProfile}
 
     return (
         <AuthContext.Provider value={authInfo}>

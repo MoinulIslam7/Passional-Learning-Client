@@ -5,7 +5,7 @@ import logo from "../../Assets/logo192.png"
 
 const Header = () => {
 
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, darkMode, toggleDarkMode} = useContext(AuthContext);
     console.log('context', user);
     console.log(user?.photoURL);
 
@@ -46,7 +46,7 @@ const Header = () => {
                     {
                         user?.uid
                             ?
-                            <button onClick={handleSignOut} className="btn btn-ghost normal-case text-xl">Sign Out</button>
+                            <button onClick={handleSignOut} className="btn btn-ghost normal-case text-xl mt-0">Sign Out</button>
                             :
                             <>
                                 <Link to='/login'>
@@ -74,7 +74,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn">Theme</Link>
+                <Link onClick={() => toggleDarkMode()} className="btn">Theme</Link>
             </div>
         </div>
     );

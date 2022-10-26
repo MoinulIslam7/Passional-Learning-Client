@@ -3,14 +3,23 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
+
+  /* Light mode */
+  --color: rgb(250,250,250);
+  --background-color: var(var(--background-color));
+  color: var(--color);
+  background-color: var(--background-color);
+}
+body.dark-mode{
+  --color: rgb(250,250,250);
+  --background-color: rgb(5,5,5);
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
