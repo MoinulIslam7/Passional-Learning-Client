@@ -17,45 +17,45 @@ export const routes = createBrowserRouter([
         path: '/',
         element: <Main></Main>,
         children: [
-                {
-                    path: '/',
-                    element: <Home></Home>
-                },
-                {
-                    path: '/Courses',
-                    element: <Courses></Courses>
-                },
-                {
-                    path: '/CourseDetails/:id',
-                    element: <CourseDetails></CourseDetails>,
-                    loader: ({params}) => fetch(`http://localhost:5000/CourseDetails/${params.id}`)
-                },
-                {
-                    path: '/Checkout/:id',
-                    element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>,
-                    loader: ({params}) => fetch(`http://localhost:5000/CourseDetails/${params.id}`)
-                },
-                {
-                    path: '/FAQ',
-                    element: <FAQ></FAQ>
-                },
-                {
-                    path: '/login',
-                    element: <Login></Login>
-                },
-                {
-                    path: '/Register',
-                    element: <Register></Register>
-                },
-                {
-                    path: '/Blog',
-                    element: <Blog></Blog>
-                }
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/Courses',
+                element: <Courses></Courses>
+            },
+            {
+                path: '/CourseDetails/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({ params }) => fetch(`https://passional-learning-server.vercel.app/CourseDetails/${params.id}`)
+            },
+            {
+                path: '/Checkout/:id',
+                element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://passional-learning-server.vercel.app/CourseDetails/${params.id}`)
+            },
+            {
+                path: '/FAQ',
+                element: <FAQ></FAQ>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/Register',
+                element: <Register></Register>
+            },
+            {
+                path: '/Blog',
+                element: <Blog></Blog>
+            }
         ]
     },
     {
         path: '*',
         element: <h1 className="text-5xl text-center">SORRY!! Router Not Found!!</h1>
     }
-       
+
 ])
