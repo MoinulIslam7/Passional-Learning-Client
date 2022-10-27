@@ -64,7 +64,7 @@ const Register = () => {
 
 
     return (
-        <div className=' mx-96 '>
+        <div className=''>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
@@ -109,10 +109,10 @@ const Register = () => {
                         </form>
                         <div className='flex justify-evenly mb-3'>
                             <div>
-                                <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">Google</button>
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success"> Sign in with Google</button>
                             </div>
                             <div>
-                                <button onClick={handleGitHubSignIn} className="btn btn-outline btn-success">GitHub</button>
+                                <button onClick={handleGitHubSignIn} className="btn btn-outline btn-success">Sign in with GitHub</button>
                             </div>
                         </div>
                     </div>

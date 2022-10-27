@@ -8,7 +8,7 @@ const Checkout = () => {
     const {user} = useContext(AuthContext);
     return (
         <div className='mt-4 grid justify-center'>
-            <div className="card w-full text-yellow-800 bg-green-100 shadow-xl my-4">
+            <div className="card w-full  text-green-300 shadow-xl my-4">
                 <div className="card-body">
                     <h1 className='text-5xl text-bold'>Welcome, {user.displayName}</h1>
                     <h2 className="card-title text-bold">Your selected Course: {course.title}</h2>
