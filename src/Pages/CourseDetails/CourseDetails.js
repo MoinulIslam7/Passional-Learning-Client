@@ -7,8 +7,9 @@ const CourseDetails = () => {
     const courseDetails = useLoaderData();
     return (
 
-        <div className='mt-4 md:w-32 lg:w-full ' >
-            <div className="card lg:card-side bg-base-800 shadow-xl  text-green-300">
+        <div className='mt-4 md:w-32 lg:w-full text-green-300' >
+            <h1 className='text-3xl m-4 text-center'>Your Selected Course: </h1>
+            <div className="card lg:card-side bg-base-800 shadow-xl  ">
                 <figure><img className='w-96 h-96' src={courseDetails.image} alt="Album" /></figure>
                 <div className="card-body" ref={ref}>
                     <div className='flex justify-between'>
